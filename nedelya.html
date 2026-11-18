@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Собери свою неделю контента · Метод Родочинской</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@600;800&display=swap">
+<style>
+:root{--m:#E3165E;--l:#B565D8;--o:#94901F;--ink:#2A1A24;--mute:#8A7480;--soft:#FBF3F7;--lsoft:#F6EEFB;--osoft:#F5F4E4;--line:#F0DCE6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.5;font-size:16px;overflow-x:hidden;
+ padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{max-width:640px;margin:0 auto;padding:22px 18px 60px;position:relative}
+.top{display:flex;gap:8px;flex-wrap:wrap}
+.pill{display:inline-block;border-radius:99px;padding:6px 14px;font-weight:800;font-size:11px;letter-spacing:.06em;color:#fff;
+ background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 50%),linear-gradient(180deg,#FF5C93,var(--m) 55%,#B80E4A);border-bottom:3px solid #9E0C40}
+.pill.l{background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 50%),linear-gradient(180deg,#D99BF0,var(--l) 55%,#8E3FB3);border-bottom-color:#6E2C8E}
+.pill.o{background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 50%),linear-gradient(180deg,#C2BD3E,var(--o) 55%,#6E6A12);border-bottom-color:#55520C}
+h1{font-family:Unbounded,sans-serif;font-weight:800;font-size:clamp(30px,8.5vw,46px);line-height:1.05;letter-spacing:-.01em;margin:26px 0 14px;max-width:76%}
+h2{font-family:Unbounded,sans-serif;font-weight:800;font-size:clamp(21px,5.6vw,28px);line-height:1.15;margin-bottom:10px}
+h3{font-family:Unbounded,sans-serif;font-weight:600;font-size:16px;margin-bottom:6px}
+.m{color:var(--m)} .lc{color:var(--l)} .oc{color:#6E6A12}
+.lead{font-size:17px;max-width:540px}
+.hero{position:relative}
+.stk{position:absolute;pointer-events:none;animation:float 5s ease-in-out infinite}
+.stk.b{animation-delay:-2s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.steps{display:flex;gap:6px;margin:22px 0 6px}
+.steps i{flex:1;height:7px;border-radius:99px;background:#F4ECF1;transition:background .4s}
+.steps i.on{background:linear-gradient(90deg,#FF5C93,var(--m))}
+.card{border-radius:24px;padding:22px 20px;background:var(--soft);margin-top:16px}
+.card.l{background:var(--lsoft)} .card.o{background:var(--osoft)} .card.w{background:#fff;border:1.5px solid var(--line)}
+.q{display:none;animation:in .45s cubic-bezier(.2,.8,.2,1)}
+.q.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.qn{font-size:13px;font-weight:800;color:var(--l);letter-spacing:.05em;margin-bottom:6px}
+.opts{display:grid;gap:10px;margin-top:14px}
+.opts.two{grid-template-columns:1fr 1fr}
+.opts.three{grid-template-columns:1fr 1fr 1fr}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;font-weight:700;font-size:16px;color:var(--ink);
+ background:#fff;border:2px solid var(--line);border-radius:18px;padding:14px 16px;cursor:pointer;transition:transform .15s,border-color .2s,background .2s}
+.opt:active{transform:scale(.98)}
+.opt .e{font-size:22px;width:30px;text-align:center;flex:none}
+.opt small{display:block;font-weight:500;font-size:13px;color:var(--mute)}
+.opt.big{flex-direction:column;align-items:center;text-align:center;gap:2px;padding:16px 8px}
+.opt.big b{font-family:Unbounded,sans-serif;font-size:26px;color:var(--m)}
+.opt.sel{border-color:var(--m);background:#FFF5F9;box-shadow:0 4px 14px rgba(227,22,94,.15)}
+.opt.sel:not(.big):after{content:"✓";margin-left:auto;width:26px;height:26px;flex:none;border-radius:50%;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;
+ background:radial-gradient(circle at 35% 30%,#FF8DB2,var(--m) 70%)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:16px;color:#fff;text-decoration:none;
+ border-radius:99px;padding:15px 26px;background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 50%),linear-gradient(180deg,#FF5C93,var(--m) 55%,#B80E4A);
+ border-bottom:4px solid #9E0C40;box-shadow:0 6px 16px rgba(227,22,94,.3);transition:transform .15s,opacity .2s}
+.btn:active{transform:scale(.97)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.btn.l{background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 50%),linear-gradient(180deg,#D99BF0,var(--l) 55%,#8E3FB3);border-bottom-color:#6E2C8E;box-shadow:0 6px 16px rgba(181,101,216,.3)}
+.btn.wide{width:100%}
+.row{display:flex;gap:10px;margin-top:18px;align-items:center}
+.back{white-space:nowrap;background:none;border:0;font:inherit;font-weight:700;color:var(--mute);cursor:pointer;padding:10px 4px}
+input[type=text]{width:100%;font:inherit;font-size:16px;border:2px solid var(--line);border-radius:16px;padding:13px 15px;margin-top:14px;color:var(--ink);background:#fff}
+input:focus{outline:none;border-color:var(--l)}
+.hint{font-size:13px;color:var(--mute);margin-top:6px}
+#result{display:none}
+#result.on{display:block;animation:in .5s cubic-bezier(.2,.8,.2,1)}
+/* неделя */
+#weekCard{background:#fff;border-radius:24px;padding:20px 16px 16px;margin-top:16px;border:1.5px solid var(--line)}
+.wk-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+.wk-head small{font-size:12px;color:var(--mute);font-weight:700}
+.day{display:grid;grid-template-columns:46px 1fr;gap:12px;align-items:stretch;margin-top:9px}
+.dn{border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Unbounded,sans-serif;font-weight:800;font-size:15px;color:#fff;
+ background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 50%),linear-gradient(180deg,#FF5C93,var(--m) 60%,#B80E4A);border-bottom:3px solid #9E0C40}
+.day.t .dn{background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 50%),linear-gradient(180deg,#D99BF0,var(--l) 60%,#8E3FB3);border-bottom-color:#6E2C8E}
+.day.s .dn{background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 50%),linear-gradient(180deg,#C2BD3E,var(--o) 60%,#6E6A12);border-bottom-color:#55520C}
+.day.r .dn{background:#F4ECF1;color:#B9A3AF;border-bottom:3px solid #E6D3DD}
+.dc{border-radius:16px;padding:11px 13px;background:var(--soft)}
+.day.t .dc{background:var(--lsoft)} .day.s .dc{background:var(--osoft)} .day.r .dc{background:#FAF7F8;color:var(--mute)}
+.dc .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;font-weight:800;margin-bottom:3px}
+.chip{border-radius:99px;padding:2px 9px;background:#fff;color:var(--m)}
+.day.t .chip{color:var(--l)} .day.s .chip{color:#6E6A12}
+.dc .rb{font-weight:800;font-size:15px}
+.dc .tp{font-size:14px;color:#5E4A55}
+.bar{display:flex;height:34px;border-radius:99px;overflow:hidden;margin-top:14px;font-weight:800;font-size:12px;color:#fff;text-align:center;line-height:34px}
+.bar div{transition:flex .5s}
+.leg{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:13px;color:var(--mute);font-weight:700}
+.leg span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.rubs{display:grid;gap:10px;margin-top:12px}
+.rub{background:#fff;border-radius:16px;padding:12px 14px;border:2px solid var(--line)}
+.rub b{display:block}
+.rub span{font-size:13.5px;color:var(--mute)}
+.prompt{white-space:pre-wrap;font-size:14px;line-height:1.5;background:#FCF8FE;border:2px dashed var(--l);border-radius:18px;padding:16px;max-height:220px;overflow:auto;margin-top:14px}
+.ais{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.ai{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink);font-weight:800;font-size:13px;background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 6px}
+.ai b{font-size:22px}
+.how{counter-reset:s;list-style:none;margin-top:10px}
+.how li{counter-increment:s;position:relative;padding-left:36px;margin:12px 0}
+.how li:before{content:counter(s);position:absolute;left:0;top:-1px;width:25px;height:25px;border-radius:50%;color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;
+ background:radial-gradient(circle at 35% 30%,#FF8DB2,var(--m) 70%)}
+.cmds{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.cmd{font:inherit;text-align:left;cursor:pointer;background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px;color:var(--ink);transition:border-color .2s}
+.cmd b{display:block;font-size:14px}
+.cmd span{font-size:12.5px;color:var(--mute)}
+.cmd.ok{border-color:var(--o)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;font-weight:700;
+ padding:12px 20px;border-radius:99px;font-size:14px;transition:all .3s;z-index:9;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.foot{text-align:center;font-size:12.5px;color:var(--mute);margin-top:36px}
+.conf{position:fixed;inset:0;pointer-events:none;z-index:8;overflow:hidden}
+.conf i{position:absolute;top:-20px;width:10px;height:14px;border-radius:3px;animation:fall 1.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.2}}
+@media (prefers-reduced-motion:reduce){.stk,.conf i{animation:none}.q,#result.on{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span class="pill">МЕТОД РОДОЧИНСКОЙ</span><span class="pill l">РОЛЬ 2 · ИМПРОВИЗАТОР</span></div>
+
+  <div class="hero">
+    <svg class="stk" style="right:-8px;top:-4px;width:76px;rotate:-10deg" viewBox="0 0 100 100"><defs><radialGradient id="a" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FF7BA6"/><stop offset="1" stop-color="#E3165E"/></radialGradient></defs><path d="M50 8a14 14 0 0 1 14 18 14 14 0 0 1 22 8 14 14 0 0 1-8 22 14 14 0 0 1-8 22 14 14 0 0 1-20 8 14 14 0 0 1-20-8 14 14 0 0 1-8-22 14 14 0 0 1-8-22 14 14 0 0 1 22-8A14 14 0 0 1 50 8z" fill="url(#a)" stroke="#E3165E" stroke-width="1.5"/><ellipse cx="38" cy="30" rx="16" ry="8" fill="#fff" opacity=".55" transform="rotate(-25 38 30)"/></svg>
+    <svg class="stk b" style="right:62px;top:-14px;width:34px" viewBox="0 0 100 100"><defs><radialGradient id="b" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#E2B6F5"/><stop offset="1" stop-color="#B565D8"/></radialGradient></defs><path d="M50 2c4 26 10 40 46 48-36 8-42 22-46 48-4-26-10-40-46-48 36-8 42-22 46-48z" fill="url(#b)" stroke="#B565D8" stroke-width="1.5"/><ellipse cx="42" cy="34" rx="10" ry="5" fill="#fff" opacity=".55" transform="rotate(-25 42 34)"/></svg>
+    <h1>Собери свою <span class="m">неделю контента</span></h1>
+    <p class="lead">5 вопросов, 1 минута. Получишь готовый план на неделю: что, где и зачем выкладывать, свои рубрики и промпт, который напишет тексты.</p>
+  </div>
+
+  <div class="steps" id="steps"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+
+  <section class="card q on" data-q="role">
+    <div class="qn">ВОПРОС 1 ИЗ 5</div>
+    <h2>Кто ты в блоге?</h2>
+    <div class="opts">
+      <button class="opt" data-v="expert"><span class="e">🎓</span><span>Эксперт<small>консультации, услуги, обучение</small></span></button>
+      <button class="opt" data-v="master"><span class="e">💅</span><span>Мастер<small>маникюр, фото, торты, ремонт…</small></span></button>
+      <button class="opt" data-v="goods"><span class="e">🛍️</span><span>Товарный бизнес<small>продаю товары</small></span></button>
+      <button class="opt" data-v="blogger"><span class="e">📸</span><span>Блогер<small>реклама, контент для брендов</small></span></button>
+    </div>
+  </section>
+
+  <section class="card o q" data-q="where" data-multi="1">
+    <div class="qn">ВОПРОС 2 ИЗ 5 · МОЖНО НЕСКОЛЬКО</div>
+    <h2>Где ведёшь блог?</h2>
+    <div class="opts two">
+      <button class="opt" data-v="Instagram">Instagram</button>
+      <button class="opt" data-v="Telegram">Telegram</button>
+      <button class="opt" data-v="ВКонтакте">ВКонтакте</button>
+      <button class="opt" data-v="MAX">MAX</button>
+      <button class="opt" data-v="YouTube">YouTube</button>
+      <button class="opt" data-v="Threads">Threads</button>
+    </div>
+    <div class="row"><button class="back" type="button">← назад</button><button class="btn" type="button" data-next disabled style="margin-left:auto">Дальше</button></div>
+  </section>
+
+  <section class="card l q" data-q="n">
+    <div class="qn">ВОПРОС 3 ИЗ 5</div>
+    <h2>Сколько публикаций в неделю ты <span class="lc">реально</span> потянешь?</h2>
+    <p class="hint">Честно. Лучше 3 каждую неделю, чем 7 одну неделю и потом тишина.</p>
+    <div class="opts three">
+      <button class="opt big" data-v="3"><b>3</b><small>спокойно</small></button>
+      <button class="opt big" data-v="5"><b>5</b><small>бодро</small></button>
+      <button class="opt big" data-v="7"><b>7</b><small>каждый день</small></button>
+    </div>
+    <div class="row"><button class="back" type="button">← назад</button></div>
+  </section>
+
+  <section class="card q" data-q="goal">
+    <div class="qn">ВОПРОС 4 ИЗ 5</div>
+    <h2>Что сейчас важнее всего?</h2>
+    <div class="opts">
+      <button class="opt" data-v="reach"><span class="e">🚀</span><span>Новые люди<small>хочу, чтобы меня увидели</small></span></button>
+      <button class="opt" data-v="trust"><span class="e">💞</span><span>Доверие<small>смотрят, но не пишут и не реагируют</small></span></button>
+      <button class="opt" data-v="sales"><span class="e">💰</span><span>Продажи<small>аудитория есть, хочу заявок</small></span></button>
+    </div>
+    <div class="row"><button class="back" type="button">← назад</button></div>
+  </section>
+
+  <section class="card l q" data-q="about">
+    <div class="qn">ВОПРОС 5 ИЗ 5 · ПО ЖЕЛАНИЮ</div>
+    <h2>Чем ты занимаешься? Одной фразой</h2>
+    <input type="text" id="about" maxlength="200" placeholder="Например: психолог для мам в декрете">
+    <p class="hint">Можно пропустить. С этой фразой промпт получится точнее.</p>
+    <div class="row"><button class="back" type="button">← назад</button><button class="btn" type="button" id="make" style="margin-left:auto">Собрать ✨</button></div>
+  </section>
+
+  <section id="result">
+    <div id="weekCard">
+      <div class="wk-head">
+        <div><span class="pill">МОЯ НЕДЕЛЯ КОНТЕНТА</span><h2 style="margin-top:12px" id="wkTitle">План готов</h2></div>
+      </div>
+      <div id="week"></div>
+      <div class="bar" id="bar"></div>
+      <div class="leg"><span style="--c:#E3165E">привлечь новых</span><span style="--c:#B565D8">доверие</span><span style="--c:#94901F">продажа</span></div>
+      <p class="hint" style="margin-top:12px;text-align:center">Метод Родочинской · собрано на интенсиве</p>
+    </div>
+    <p class="hint" style="text-align:center;margin-top:10px">📸 Сделай скриншот недели и поставь на заставку или отправь в «Хвастаюсь» мини-приложения: пока идёт интенсив, за это начисляются баллы.</p>
+
+    <div class="card l">
+      <h2>Твои <span class="lc">рубрики</span></h2>
+      <p>Постоянные полочки для тем. Каждую неделю кладёшь на них новое, и больше не нужно придумывать с нуля.</p>
+      <div class="rubs" id="rubs"></div>
+    </div>
+
+    <div class="card">
+      <span class="pill">ТЕКСТЫ ЗА ТЕБЯ</span>
+      <h2 style="margin-top:14px">Пусть нейросеть <span class="m">напишет неделю</span></h2>
+      <ol class="how">
+        <li><b>Скопируй промпт</b> кнопкой ниже. В нём уже твоя неделя и рубрики.</li>
+        <li><b>Открой нейросеть</b>, вставь в новый чат и отправь. Она предложит темы на каждый день, а потом напишет тексты.</li>
+      </ol>
+      <button class="btn wide" type="button" id="copy">📋 Скопировать промпт недели</button>
+      <div class="ais">
+        <a class="ai" href="https://chatgpt.com/" target="_blank" rel="noopener"><b>💬</b>ChatGPT</a>
+        <a class="ai" href="https://chat.deepseek.com/" target="_blank" rel="noopener"><b>🐳</b>DeepSeek</a>
+        <a class="ai" href="https://giga.chat/" target="_blank" rel="noopener"><b>🟢</b>GigaChat</a>
+      </div>
+      <p class="hint" style="margin-top:10px">DeepSeek и GigaChat работают без VPN. Подойдёт и бесплатная версия ChatGPT.</p>
+      <div class="prompt" id="prompt"></div>
+      <button class="back" type="button" id="restart" style="margin-top:6px">↺ Собрать заново</button>
+    </div>
+
+    <div class="card o">
+      <h2>Секретные <span class="oc">команды</span></h2>
+      <p>Пиши их нейросети по ходу. Нажми, чтобы скопировать.</p>
+      <div class="cmds">
+        <button class="cmd" type="button" data-c="Дай ещё 5 тем на этот день, смелее и неожиданнее."><b>💡 «Ещё 5 тем»</b><span>если тема не цепляет</span></button>
+        <button class="cmd" type="button" data-c="Вот 3 моих текста: [вставь]. Опиши мой стиль и пиши дальше только так."><b>🎙 «Пиши как я»</b><span>свой голос в текстах</span></button>
+        <button class="cmd" type="button" data-c="Сделай из этой темы сценарий рилс на 30 секунд: секунды · что в кадре · что говорю · текст на экране."><b>🎬 «Сделай рилс»</b><span>сценарий по секундам</span></button>
+        <button class="cmd" type="button" data-c="Сделай из этой темы карусель на 8 слайдов: обложка с крючком, по одной мысли на слайд, финал «сохрани»."><b>🖼 «Сделай карусель»</b><span>8 слайдов</span></button>
+        <button class="cmd" type="button" data-c="Сократи в 2 раза и сделай живее, как будто я рассказываю подруге."><b>✂️ «Короче и живее»</b><span>если вышло длинно</span></button>
+        <button class="cmd" type="button" data-c="Собери план на следующую неделю по тем же рубрикам, но с новыми темами."><b>🔁 «Следующая неделя»</b><span>система на месяц</span></button>
+      </div>
+    </div>
+
+    <div class="card w" id="cta">
+      <h2>Это 1 шаг из системы. <span class="m">Остальные пройдём вместе</span></h2>
+      <p>На <b>Контент-профи 12.0</b> разбираем дальше: как собрать стратегию под твою цель, делать контент, который приводит людей и продаёт, и отдать рутину нейросетям. С кураторами, которые ведут за руку.</p>
+      <div id="ctaBox" style="margin-top:16px"></div>
+    </div>
+  </section>
+
+  <p class="foot">Школа по маркетингу и нейросетям Юлии Родочинской</p>
+</div>
+<div class="toast" id="toast"></div>
+<div class="conf" id="conf"></div>
+
+<script>
+/* ===== НАСТРОЙКИ ===== */
+var WAITLIST_URL = "";   // ссылка на лист ожидания, например "https://..."
+var CARE_CONTACT = "";   // контакт отдела заботы, например "@care_rodochinskaya"
+/* ===================== */
+
+var ans = {role:"", where:[], n:"", goal:"", about:""};
+var qs = Array.prototype.slice.call(document.querySelectorAll(".q"));
+var bars = document.querySelectorAll("#steps i");
+function show(i){
+  qs.forEach(function(q,k){ q.classList.toggle("on", k===i); });
+  bars.forEach(function(b,k){ b.classList.toggle("on", k<=i); });
+  var top = document.getElementById("steps").getBoundingClientRect().top + window.pageYOffset - 20;
+  if (window.pageYOffset > top) window.scrollTo({top:top, behavior:"smooth"});
+}
+qs.forEach(function(q,i){
+  var key=q.getAttribute("data-q"), multi=q.getAttribute("data-multi");
+  q.querySelectorAll(".opt").forEach(function(o){
+    o.addEventListener("click", function(){
+      var v=o.getAttribute("data-v");
+      if (multi){
+        o.classList.toggle("sel");
+        ans[key]=Array.prototype.map.call(q.querySelectorAll(".opt.sel"), function(x){ return x.getAttribute("data-v"); });
+        q.querySelector("[data-next]").disabled = ans[key].length===0;
+      } else {
+        q.querySelectorAll(".opt").forEach(function(x){ x.classList.remove("sel"); });
+        o.classList.add("sel"); ans[key]=v;
+        setTimeout(function(){ show(i+1); }, 260);
+      }
+    });
+  });
+  var nx=q.querySelector("[data-next]"); if (nx) nx.addEventListener("click", function(){ show(i+1); });
+  var bk=q.querySelector(".back"); if (bk) bk.addEventListener("click", function(){ show(i-1); });
+});
+
+/* Рубрики: [название, что это, пример темы] */
+var RUB = {
+ expert:{ a:[["Частая ошибка","ошибки клиентов и как правильно","Ошибка, которую делают почти все мои клиенты"],["Миф недели","разбиваешь популярный миф о своей теме","Все думают, что [миф]. На самом деле…"]],
+          t:[["Как я работаю","процесс, подход, что происходит на встрече","Как проходит первая встреча со мной"],["Разбор вопроса","отвечаешь на вопрос подписчика","Мне написали: «[вопрос]». Отвечаю"],["Личное","твоя история и ценности","Почему я выбрал(а) эту профессию"]],
+          s:[["Кейс недели","было → стало у клиента + кодовое слово","Как [клиент] за [срок] пришёл к [результат]"]] },
+ master:{ a:[["До и после","результат работы в двух кадрах","Так было, а так стало через 2 часа"],["Процесс за 30 секунд","залипательное видео работы","Как делается [работа] от начала до конца"]],
+          t:[["Как это делается","материалы, секреты, детали","Почему я работаю только с [материал]"],["Отвечаю клиентам","частые вопросы","Сколько держится [результат] и от чего зависит"],["Мой день","закулисье мастера","Один мой рабочий день"]],
+          s:[["Свободные окошки","окна на неделю и как записаться","Окошки на эту неделю: пиши «хочу»"]] },
+ goods:{ a:[["Подборка","товары под повод или задачу","3 товара для [повод]"],["Распаковка","эффектно открываешь товар","Распаковываю новинку недели"]],
+          t:[["Как это делается","производство, упаковка, закулисье","Как собирается каждый заказ"],["Отзыв недели","реальный отзыв покупателя","Что написала покупательница через неделю"],["История бренда","кто за брендом и почему","Почему я начал(а) продавать [товар]"]],
+          s:[["Товар недели","почему его берут и как заказать","Почему [товар] разбирают первым + как заказать"]] },
+ blogger:{ a:[["Тренд в моей теме","тренд, адаптированный под тебя","Пробую тренд недели по-своему"],["Тестирую неделю","челлендж или тест продукта","Неделю пользуюсь [продукт]: что вышло"]],
+          t:[["Моя рутина","утро, уход, тренировки, дом","Моя рутина на 5 минут"],["Честный отзыв","что понравилось и что нет","Стоит ли [продукт] своих денег"],["Личное","жизнь, мысли, истории","Что я понял(а) за этот месяц"]],
+          s:[["Для брендов","показываешь, как работаешь с брендами","Как я снимаю рекламу, которую досматривают"]] }
+};
+var PLAN = {
+ reach:{3:"ata",5:"atata",7:"atatats"},
+ trust:{3:"att",5:"attat",7:"attatst"},
+ sales:{3:"ats",5:"atats",7:"atstats"}
+};
+var DAYS={3:["Пн","Ср","Пт"],5:["Пн","Вт","Ср","Чт","Пт"],7:["Пн","Вт","Ср","Чт","Пт","Сб","Вс"]};
+var ALL=["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];
+var GOALNAME={a:"привлечь",t:"доверие",s:"продажа"};
+
+function platforms(){
+  var w=ans.where, reach=w.filter(function(p){return ["Instagram","ВКонтакте","YouTube","Threads"].indexOf(p)>-1;}),
+      home=w.filter(function(p){return ["Telegram","MAX"].indexOf(p)>-1;});
+  return {reach:reach, home:home};
+}
+function fmt(type,plat,k){
+  if (type==="a"){
+    if (plat==="Telegram"||plat==="MAX") return "пост, который хочется переслать";
+    if (plat==="Threads") return "пост-мнение";
+    if (plat==="YouTube") return "Shorts";
+    return k%2? "карусель":"рилс";
+  }
+  if (type==="t"){
+    if (plat==="Telegram"||plat==="MAX") return "пост";
+    if (plat==="Threads") return "пост-история";
+    return k%2? "пост":"сторис";
+  }
+  if (plat==="Telegram"||plat==="MAX") return "пост-кейс с кодовым словом";
+  return "рилс + кодовое слово";
+}
+var week=[];
+function build(){
+  var P=platforms(), seq=PLAN[ans.goal][ans.n].toLowerCase(), days=DAYS[ans.n], r=RUB[ans.role];
+  var ci={a:0,t:0,s:0}, pi={reach:0,home:0}; week=[];
+  ALL.forEach(function(d){
+    var k=days.indexOf(d);
+    if (k<0){ week.push({d:d,rest:true,last:d==="Вс"}); return; }
+    var type=seq[k], list=r[type], rub=list[ci[type]%list.length]; ci[type]++;
+    var soft=P.reach.filter(function(p){return p!=="YouTube";}); if(!soft.length) soft=P.reach;
+    var pool = type==="a" ? (P.reach.length?P.reach:P.home) : (P.home.length?P.home:soft);
+    if (type==="s") pool = (ci.s%2 && P.reach.length)? P.reach : (P.home.length?P.home:P.reach);
+    var key = pool===P.home?"home":"reach";
+    var plat=pool[pi[key]%pool.length]; pi[key]++;
+    week.push({d:d,type:type,plat:plat,fmt:fmt(type,plat,ci[type]-1),rub:rub});
+  });
+}
+function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+function render(){
+  var h="";
+  week.forEach(function(x){
+    if (x.rest){
+      h+='<div class="day r"><div class="dn">'+x.d+'</div><div class="dc"><div class="rb">'+(x.last?"Отдых + цифры":"Отдых")+'</div><div class="tp">'+(x.last?"Посмотри, что зашло лучше всего, и повтори это на следующей неделе":"Можно сторис из жизни, без плана")+'</div></div></div>';
+      return;
+    }
+    h+='<div class="day '+(x.type==="a"?"":x.type)+'"><div class="dn">'+x.d+'</div><div class="dc"><div class="meta"><span class="chip">'+GOALNAME[x.type]+'</span><span>'+esc(x.plat)+' · '+x.fmt+'</span></div><div class="rb">«'+x.rub[0]+'»</div><div class="tp">'+x.rub[2]+'</div></div></div>';
+  });
+  document.getElementById("week").innerHTML=h;
+  var c={a:0,t:0,s:0}, n=0; week.forEach(function(x){ if(!x.rest){c[x.type]++;n++;} });
+  var bh=""; [["a","#E3165E"],["t","#B565D8"],["s","#94901F"]].forEach(function(p){ if(c[p[0]]) bh+='<div style="flex:'+c[p[0]]+';background:'+p[1]+'">'+Math.round(c[p[0]]/n*100)+'%</div>'; });
+  document.getElementById("bar").innerHTML=bh;
+  document.getElementById("wkTitle").innerHTML='Твой план: <span class="m">'+n+' '+(n===3?"публикации":"публикаций")+'</span>';
+  var used={}, rh="";
+  week.forEach(function(x){ if(!x.rest && !used[x.rub[0]]){ used[x.rub[0]]=1; rh+='<div class="rub"><b>«'+x.rub[0]+'» · <span style="color:'+(x.type==="a"?"#E3165E":x.type==="t"?"#B565D8":"#6E6A12")+'">'+GOALNAME[x.type]+'</span></b><span>'+x.rub[1]+'</span></div>'; } });
+  document.getElementById("rubs").innerHTML=rh;
+}
+var ROLE={expert:"эксперт (консультации, услуги, обучение)",master:"мастер (делаю услуги руками)",goods:"товарный бизнес",blogger:"блогер (реклама, контент для брендов)"};
+var GOAL={reach:"привлечь новых людей",trust:"чтобы мне больше доверяли и писали",sales:"больше заявок и продаж"};
+function prompt(){
+  var lines=[];
+  week.forEach(function(x){ if(!x.rest) lines.push(x.d+" · "+x.plat+" · "+x.fmt+" · цель: "+GOALNAME[x.type]+" · рубрика «"+x.rub[0]+"» ("+x.rub[1]+")"); });
+  var about = ans.about ? "Чем я занимаюсь: "+ans.about+".\n" : "";
+  return "Ты мой контент-редактор по Методу Родочинской. Помоги наполнить мою неделю контента.\n\n"+
+  "ОБО МНЕ\n"+about+"Кто я в блоге: "+ROLE[ans.role]+".\nПлощадки: "+ans.where.join(", ")+".\nГлавная цель сейчас: "+GOAL[ans.goal]+".\n\n"+
+  "МОЯ НЕДЕЛЯ\n"+lines.join("\n")+"\n\n"+
+  "ЧТО СДЕЛАТЬ\n1. Если чего-то обо мне не хватает (кто мой клиент, что я продаю, чем я отличаюсь), задай до 3 коротких вопросов одним сообщением и жди ответ.\n"+
+  "2. Предложи по 2 темы на каждый день недели под его рубрику и цель. Покажи таблицей: день · площадка · формат · тема. Я выберу по одной.\n"+
+  "3. Потом пиши тексты по одному дню, начиная с понедельника, и после каждого спрашивай, идём ли дальше. Для рилс пиши сценарий таблицей: секунды · что в кадре · что говорю · текст на экране. Для карусели: текст 8 слайдов. Для сторис: 3–4 сториз подряд с опросом или вопросом.\n\n"+
+  "ПРАВИЛА\nДля привлечения: тема, которую хочется переслать подруге, узнаваемая боль или неожиданное мнение. Для доверия: процесс, история, живые детали. Для продажи: результат клиента, что входит, один понятный призыв или кодовое слово.\n"+
+  "Одна публикация, один призыв. Пиши просто и живо, на «ты», без канцелярита, клише и пафоса. Не придумывай факты, цифры и истории обо мне: где нужно моё, оставь [скобки]. В Instagram не пиши «купи», «скидка», «оплати».\n\n"+
+  "Начни с вопросов или сразу с тем, если всего хватает.";
+}
+var promptText="";
+document.getElementById("make").addEventListener("click", function(){
+  ans.about=document.getElementById("about").value.trim();
+  build(); render(); promptText=prompt();
+  document.getElementById("prompt").textContent=promptText;
+  qs.forEach(function(q){ q.classList.remove("on"); });
+  document.getElementById("steps").style.display="none";
+  document.getElementById("result").classList.add("on");
+  window.scrollTo({top:document.getElementById("result").getBoundingClientRect().top+window.pageYOffset-16, behavior:"smooth"});
+  confetti();
+});
+document.getElementById("restart").addEventListener("click", function(){
+  document.getElementById("result").classList.remove("on");
+  document.getElementById("steps").style.display="";
+  var c=document.getElementById("copy"); c.textContent="📋 Скопировать промпт недели";
+  show(0); window.scrollTo({top:0,behavior:"smooth"});
+});
+function toast(t){ var e=document.getElementById("toast"); e.textContent=t; e.classList.add("on"); clearTimeout(e._t); e._t=setTimeout(function(){ e.classList.remove("on"); },2200); }
+function copyText(t,done){
+  function fallback(){ var ta=document.createElement("textarea"); ta.value=t; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0,t.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){} document.body.removeChild(ta); done(ok); }
+  if (navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(t).then(function(){ done(true); }, fallback); } else fallback();
+}
+document.getElementById("copy").addEventListener("click", function(){
+  var b=this; copyText(promptText, function(ok){ if(ok){ b.textContent="✅ Скопировано! Теперь открой нейросеть"; toast("Промпт скопирован 💖"); } else toast("Выдели текст в рамке и скопируй вручную"); });
+});
+document.querySelectorAll(".cmd").forEach(function(c){ c.addEventListener("click", function(){ copyText(c.getAttribute("data-c"), function(ok){ if(ok){ c.classList.add("ok"); toast("Команда скопирована"); } }); }); });
+function confetti(){
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var box=document.getElementById("conf"), cols=["#E3165E","#B565D8","#94901F","#FF7BA6","#E2B6F5"];
+  for (var i=0;i<60;i++){ var p=document.createElement("i"); p.style.left=Math.random()*100+"%"; p.style.background=cols[i%cols.length];
+    p.style.animationDelay=(Math.random()*.5)+"s"; p.style.animationDuration=(1.2+Math.random()*1.2)+"s"; box.appendChild(p); }
+  setTimeout(function(){ box.innerHTML=""; },3200);
+}
+(function(){
+  var box=document.getElementById("ctaBox"), h="";
+  if (WAITLIST_URL) h+='<a class="btn wide" href="'+WAITLIST_URL+'" target="_blank" rel="noopener">Встать в лист ожидания</a>';
+  if (CARE_CONTACT) h+='<p class="hint" style="margin-top:12px;text-align:center">Вопросы? Пиши в отдел заботы: <b>'+CARE_CONTACT+'</b></p>';
+  if (!h) document.getElementById("cta").style.display="none"; else box.innerHTML=h;
+})();
+</script>
+</body>
+</html>
